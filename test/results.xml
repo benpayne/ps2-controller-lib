@@ -1,0 +1,14 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1763444113" />
+    <testcase name="test_single_byte" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="53" time="3.461867094039917" sim_time_ns="1202120.001" ratio_time="347246.144448935" />
+    <testcase name="test_multiple_bytes" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="86" time="11.101510524749756" sim_time_ns="3902240.001" ratio_time="351505.3192356418" />
+    <testcase name="test_parity_error" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="111" time="5.775466442108154" sim_time_ns="2002000.0009999992" ratio_time="346638.6691131446" />
+    <testcase name="test_stop_bit_error" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="137" time="5.717397689819336" sim_time_ns="2002000.001000001" ratio_time="350159.3049167903" />
+    <testcase name="test_interrupt_clear" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="162" time="3.5416460037231445" sim_time_ns="1202240.0010000002" ratio_time="339457.9807626592" />
+    <testcase name="test_edge_cases_0x00" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="193" time="3.4204390048980713" sim_time_ns="1202080.0009999983" ratio_time="351440.2681289211" />
+    <testcase name="test_edge_cases_0xFF" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="216" time="3.321495771408081" sim_time_ns="1202080.0010000002" ratio_time="361909.23720200994" />
+    <testcase name="test_reset_during_transmission" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="239" time="10.947998046875" sim_time_ns="3803080.001" ratio_time="347376.75186976785" />
+    <testcase name="test_back_to_back_bytes" classname="test_core" file="/opt/wip/ps2-controller-lib/test/test_core.py" lineno="278" time="19.99743676185608" sim_time_ns="6752400.001" ratio_time="337663.27561939345" />
+  </testsuite>
+</testsuites>
