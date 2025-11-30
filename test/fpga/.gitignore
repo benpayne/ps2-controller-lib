@@ -1,0 +1,14 @@
+# Build artifacts
+*.bit
+*.json
+*.svf
+*.config
+*.log
+a.out
+
+# Temporary documentation
+temp/
+
+# Editor backups
+*~
+

@@ -1,0 +1,66 @@
+# Colorlight i5 Pin Constraints for PS/2 Test
+# Board: https://github.com/wuxx/Colorlight-FPGA-Projects
+
+## Clock (25 MHz) #####################################
+LOCATE COMP "clk" SITE "P3";
+IOBUF PORT "clk" PULLMODE=NONE IO_TYPE=LVCMOS33;
+FREQUENCY PORT "clk" 25 MHZ;
+
+## RESET Button #######################################
+LOCATE COMP "reset_n" SITE "T1"; # FIRE 2 button
+IOBUF PORT "reset_n" PULLMODE=UP IO_TYPE=LVCMOS33;
+
+## PS/2 Keyboard ######################################
+LOCATE COMP "ps2_clk" SITE "K5";
+LOCATE COMP "ps2_data" SITE "B3";
+
+IOBUF PORT "ps2_clk" PULLMODE=UP IO_TYPE=LVCMOS33;
+IOBUF PORT "ps2_data" PULLMODE=UP IO_TYPE=LVCMOS33;
+
+## UART (to host PC via STM32 USB-Serial bridge) ##########
+# FPGA J17 -> STM32 PA3 (RX) -> USB -> PC
+LOCATE COMP "uart_tx" SITE "J17"; # FPGA transmits to STM32 RX
+
+IOBUF PORT "uart_tx" IO_TYPE=LVCMOS33 DRIVE=8;
+
+## Status LEDs ########################################
+# User's LED locations
+LOCATE COMP "led_data_ready" SITE "N18"; # LED 1: Heartbeat (blinks)
+LOCATE COMP "led_interrupt" SITE "N17";  # LED 2: Interrupt pulse
+LOCATE COMP "led_fifo_full" SITE "L20";  # LED 3: FIFO full error
+LOCATE COMP "led_valid" SITE "M18";      # LED 4: Data ready
+
+IOBUF PORT "led_data_ready" IO_TYPE=LVCMOS33;
+IOBUF PORT "led_interrupt" IO_TYPE=LVCMOS33;
+IOBUF PORT "led_fifo_full" IO_TYPE=LVCMOS33;
+IOBUF PORT "led_valid" IO_TYPE=LVCMOS33;
+
+## 7-Segment Display (PMOD_P4A) ######################
+LOCATE COMP "seg_a" SITE "E4";      # Segment A
+LOCATE COMP "seg_b" SITE "F1";      # Segment B
+LOCATE COMP "seg_c" SITE "F2";      # Segment C
+LOCATE COMP "seg_d" SITE "F3";      # Segment D
+LOCATE COMP "seg_e" SITE "G3";      # Segment E
+LOCATE COMP "seg_f" SITE "H4";      # Segment F
+LOCATE COMP "seg_g" SITE "H3";      # Segment G
+LOCATE COMP "seg_select" SITE "E1"; # Digit select
+
+IOBUF PORT "seg_a" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_b" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_c" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_d" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_e" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_f" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_g" IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "seg_select" IO_TYPE=LVCMOS33 DRIVE=4;
+
+## Buttons and Switches (PMOD_P2A) ###################
+LOCATE COMP "switch_1" SITE "K18"; # S1
+LOCATE COMP "switch_2" SITE "T18"; # S2
+LOCATE COMP "button_1" SITE "U16"; # K1
+LOCATE COMP "button_2" SITE "C18"; # K2
+
+IOBUF PORT "switch_1" PULLMODE=UP IO_TYPE=LVCMOS33;
+IOBUF PORT "switch_2" PULLMODE=UP IO_TYPE=LVCMOS33;
+IOBUF PORT "button_1" PULLMODE=UP IO_TYPE=LVCMOS33;
+IOBUF PORT "button_2" PULLMODE=UP IO_TYPE=LVCMOS33;
