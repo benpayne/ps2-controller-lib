@@ -27,7 +27,7 @@ module uart_tx #(
     reg [2:0]  bit_index;
     reg [7:0]  tx_data_reg;
 
-    always @(posedge clk) begin
+    always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             state       <= IDLE;
             tx          <= 1'b1;  // Idle high

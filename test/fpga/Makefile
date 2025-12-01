@@ -10,7 +10,7 @@
 #   make clean            # Clean build files
 
 PROJECTNAME = ps2_test
-TOP_MODULE = uart_simple_test
+TOP_MODULE = ps2_direct_with_display
 
 # Source files
 VERILOG_SOURCES = $(TOP_MODULE).v uart_tx.v
