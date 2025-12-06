@@ -397,11 +397,28 @@ yosys -p "read_verilog -I../.. ps2_test_top.v; synth_ecp5 -top ps2_test_top"
 - **Makefile** - Build automation
 - **README.md** - This file
 
-## References
+## Colorlight i5 Board Resources
 
-- PS/2 Protocol: https://wiki.osdev.org/PS/2_Keyboard
-- Colorlight i5: https://github.com/wuxx/Colorlight-FPGA-Projects
-- Library Source: `../../rtl/` and `../../wrappers/fpga/`
+### Official Documentation
+- **Tom's Colorlight i5 Guide**: https://tomverbeure.github.io/2021/01/22/The-Colorlight-i5-as-FPGA-development-board.html
+  - Comprehensive guide to using the Colorlight i5 as an FPGA dev board
+  - Detailed information on the board variants, features, and toolchain setup
+  
+- **Extension Board Pin Mapping**: https://tomverbeure.github.io/assets/colorlight_i5/colorlight_i5_ext_board_pin_mapping.svg
+  - Visual pinout diagram for the extension board PMODs
+  - Essential for identifying which connector pins map to which FPGA pins
+
+### Community Resources
+- **Colorlight i5 Tips Repository**: https://github.com/kazkojima/colorlight-i5-tips
+  - Practical tips and examples for working with the Colorlight i5
+  - Additional test designs and configuration examples
+
+- **Wuxx Colorlight FPGA Projects**: https://github.com/wuxx/Colorlight-FPGA-Projects
+  - General Colorlight FPGA board examples and documentation
+
+### Other References
+- **PS/2 Protocol**: https://wiki.osdev.org/PS/2_Keyboard
+- **Library Source**: `../../rtl/` and `../../wrappers/fpga/`
 
 ---
 

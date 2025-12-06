@@ -94,7 +94,7 @@ module ps2_decoder_core #(
                             clk_timeout[12] <= 1;
                         end
                     endcase
-                end else if (clk_timeout[12] == 0) begin
+                end else if (clk_timeout < PS2_BIT_TIME[12:0]) begin
                     clk_timeout <= clk_timeout + 1;
                 end
             end else begin

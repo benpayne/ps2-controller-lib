@@ -1,0 +1,25 @@
+SIM ?= icarus
+WAVES ?= 1
+TOPLEVEL_LANG ?= verilog
+SIM_BUILD ?= sim_build_femtorv
+
+# Source files (use absolute paths to avoid search path issues)
+VERILOG_SOURCES = $(shell pwd)/../wrappers/fpga/ps2_femtorv_wrapper.v
+VERILOG_SOURCES += $(shell pwd)/../rtl/ps2_decoder_core.v
+VERILOG_SOURCES += $(shell pwd)/../rtl/debounce.v
+VERILOG_SOURCES += $(shell pwd)/../rtl/dual_fifo.v
+VERILOG_SOURCES += $(shell pwd)/tb_femtorv_wrapper.v
+
+TOPLEVEL = tb_femtorv_wrapper
+MODULE = test_ps2_femtorv_wrapper
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+.PHONY: clean_all view
+
+clean_all: clean
+	rm -rf $(SIM_BUILD) __pycache__ results.xml *.vcd *.log
+
+view: tb_femtorv_wrapper.vcd
+	gtkwave $< &
+

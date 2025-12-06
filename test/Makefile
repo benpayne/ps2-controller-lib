@@ -5,6 +5,7 @@
 SIM ?= icarus
 WAVES ?= 1
 TOPLEVEL_LANG ?= verilog
+SIM_BUILD ?= sim_build_core
 
 # Core library sources (use absolute paths to avoid cocotb Makefile issues)
 VERILOG_SOURCES = $(shell pwd)/../rtl/ps2_decoder_core.v
@@ -28,7 +29,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 .PHONY: clean_all view
 
 clean_all: clean
-	rm -rf sim_build __pycache__ results.xml *.vcd *.log
+	rm -rf $(SIM_BUILD) __pycache__ results.xml *.vcd *.log
 
 view: tb_core.vcd
 	gtkwave $< &

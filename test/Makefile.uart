@@ -1,0 +1,39 @@
+# Makefile for focused wrapper UART tests
+# Tests wrapper-specific functionality without PS/2 protocol complexity
+#
+# This bypasses PS/2 decoding and debouncing to focus on:
+# - UART state machine
+# - ASCII hex encoding
+# - FIFO management
+# - State transitions
+
+# Simulator
+SIM ?= icarus
+WAVES ?= 1
+TOPLEVEL_LANG ?= verilog
+SIM_BUILD ?= sim_build_uart
+
+# Core modules (only what we need)
+VERILOG_SOURCES = $(shell pwd)/../rtl/dual_fifo.v
+VERILOG_SOURCES += $(shell pwd)/../rtl/uart_tx.v
+
+# Testbench (includes core modules via `include`)
+VERILOG_SOURCES += $(shell pwd)/tb_wrapper_uart.v
+TOPLEVEL = tb_wrapper_uart
+
+# Python test module
+MODULE = test_wrapper_uart
+
+# Cocotb
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+# Helper targets
+.PHONY: clean_all view
+
+clean_all: clean
+	rm -rf $(SIM_BUILD) __pycache__ results.xml *.vcd *.log
+
+view: tb_wrapper_uart.vcd
+	gtkwave $< &
+
+
